@@ -6,21 +6,21 @@ dotenv.config();
 const sepoliaContract = getSignedContract("11155111", process.env.pk);
 const mumbaiContract = getSignedContract("80001", process.env.pk);
 console.log(
-  "is mumbai attestor",
+  "is mumbai validator",
   await mumbaiContract.isAttestor(process.env.myAddress)
 );
 if ((await mumbaiContract.isAttestor(process.env.myAddress)) == false) {
-  console.log("becoming mumbai attestor");
+  console.log("becoming mumbai validator");
   const tx = await mumbaiContract.becomeAttestor({ value: "1001" });
-  console.log("now attestor", tx.wait());
+  console.log("now validator", tx.wait());
 }
 console.log(
-  "is sepolia attestor",
+  "is sepolia validator",
   await sepoliaContract.isAttestor(process.env.myAddress)
 );
 
 if ((await sepoliaContract.isAttestor(process.env.myAddress)) == false) {
-  console.log("becoming sepolia attestor");
+  console.log("becoming sepolia validator");
   const tx = await sepoliaContract.becomeAttestor({ value: "1001" });
-  console.log("now attestor", await tx.wait());
+  console.log("now validator", await tx.wait());
 }

@@ -8,7 +8,10 @@ const sepoliaContract = getSignedContract("11155111", process.env.pk);
 const mumbaiContract = getSignedContract("80001", process.env.pk);
 
 sepoliaContract.on("nftBurned", async (sender, uri, nonce) => {
+  console.log("##############################################");
   console.log("attesting ", sender, uri, Number(nonce));
+  console.log("##############################################");
+
   const tx = await mumbaiContract.attestTransaction(
     Number(nonce),
     uri,
@@ -19,7 +22,10 @@ sepoliaContract.on("nftBurned", async (sender, uri, nonce) => {
 });
 
 sepoliaContract.on("ethReceived", async (amount, sender, nonce) => {
+  console.log("##############################################");
   console.log("attesting ", Number(amount), sender, Number(nonce));
+  console.log("##############################################");
+
   const tx = await mumbaiContract.attestTransaction(
     Number(nonce),
     "",
@@ -30,7 +36,10 @@ sepoliaContract.on("ethReceived", async (amount, sender, nonce) => {
 });
 
 mumbaiContract.on("nftBurned", async (sender, uri, nonce) => {
+  console.log("##############################################");
   console.log("attesting ", sender, uri, Number(nonce));
+  console.log("##############################################");
+
   const tx = await sepoliaContract.attestTransaction(
     Number(nonce),
     uri,
@@ -41,7 +50,10 @@ mumbaiContract.on("nftBurned", async (sender, uri, nonce) => {
 });
 
 mumbaiContract.on("ethReceived", async (amount, sender, nonce) => {
+  console.log("##############################################");
   console.log("attesting ", Number(amount), sender, Number(nonce));
+  console.log("##############################################");
+
   const tx = await sepoliaContract.attestTransaction(
     Number(nonce),
     "",
