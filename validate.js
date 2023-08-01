@@ -12,7 +12,7 @@ console.log("Waiting for Transactions to validate.");
 
 sepoliaContract.on("nftBurned", async (sender, uri, nonce) => {
   const waitTime = Math.random() * 400;
-  console.log("Tx received. wait ");
+  console.log("Tx received. wait ", waitTime * 10);
   setTimeout(async () => {
     console.log("##############################################");
     console.log("attesting ", sender, uri, Number(nonce));
@@ -29,7 +29,7 @@ sepoliaContract.on("nftBurned", async (sender, uri, nonce) => {
 
 sepoliaContract.on("ethReceived", async (amount, sender, nonce) => {
   const waitTime = Math.random() * 400;
-  console.log("Tx received. wait ");
+  console.log("Tx received. wait ", waitTime * 10);
 
   setTimeout(async () => {
     console.log("##############################################");
@@ -47,7 +47,7 @@ sepoliaContract.on("ethReceived", async (amount, sender, nonce) => {
 
 mumbaiContract.on("nftBurned", async (sender, uri, nonce) => {
   const waitTime = Math.random() * 400;
-  console.log("Tx received. wait ");
+  console.log("Tx received. wait ", waitTime * 10);
   setTimeout(async () => {
     console.log("##############################################");
     console.log("attesting ", sender, uri, Number(nonce));
@@ -64,7 +64,7 @@ mumbaiContract.on("nftBurned", async (sender, uri, nonce) => {
 
 mumbaiContract.on("ethReceived", async (amount, sender, nonce) => {
   const waitTime = Math.random() * 400;
-  console.log("Tx received. wait ");
+  console.log("Tx received. wait ", waitTime * 10);
   setTimeout(async () => {
     console.log("##############################################");
     console.log("attesting ", Number(amount), sender, Number(nonce));
