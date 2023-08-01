@@ -4,10 +4,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const exchangeAddressFromId = new Map([
-  ["11155111", "0x00e91A750B5DD0237cF0A0623BB628C1B1724101"],
-  ["80001", "0x8F07078E70fe55316cDC106ef06A03Bc1fA8797F"],
+  ["11155111", "0xe17EAa6456E5AcF44A5f7d3Ce83F997133867171"],
+  ["80001", "0xD377d64960121f962F446f005cf254FC025C110e"],
 ]);
-
 const wssFromId = new Map([
   ["11155111", process.env.sepoliaWebSocketUrl],
   ["80001", process.env.mumbaiWebSocketUrl],
