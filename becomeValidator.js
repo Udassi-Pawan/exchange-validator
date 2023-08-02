@@ -12,7 +12,7 @@ console.log(
 if ((await mumbaiContract.isAttestor(process.env.myAddress)) == false) {
   console.log("becoming mumbai validator");
   const tx = await mumbaiContract.becomeAttestor({ value: "1001" });
-  console.log("now validator", tx.wait());
+  console.log("now validator", await tx.wait());
 }
 console.log(
   "is sepolia validator",
@@ -22,5 +22,5 @@ console.log(
 if ((await sepoliaContract.isAttestor(process.env.myAddress)) == false) {
   console.log("becoming sepolia validator");
   const tx = await sepoliaContract.becomeAttestor({ value: "1001" });
-  console.log("now validator", tx.wait());
+  console.log("now validator", await tx.wait());
 }
