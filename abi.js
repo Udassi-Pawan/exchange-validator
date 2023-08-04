@@ -69,6 +69,12 @@ const abi = [
         "name": "nonce",
         "type": "uint256",
       },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "requestor",
+        "type": "address",
+      },
     ],
     "name": "transactionAttested",
     "type": "event",

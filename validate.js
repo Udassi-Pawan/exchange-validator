@@ -14,7 +14,13 @@ console.log("Waiting for Transactions to validate.");
 
 sepoliaContract.on("nftBurned", async (sender, uri, nonce) => {
   console.log("##############################################");
-  console.log("attesting ", sender, uri, Number(nonce));
+  console.log(
+    "received from sepolia attesting at mumbai",
+    sender,
+    uri,
+    "nonce :",
+    Number(nonce)
+  );
   console.log("##############################################");
   const tx = await mumbaiContract.attestTransaction(
     Number(nonce),
@@ -27,7 +33,14 @@ sepoliaContract.on("nftBurned", async (sender, uri, nonce) => {
 
 sepoliaContract.on("ethReceived", async (amount, sender, nonce) => {
   console.log("##############################################");
-  console.log("attesting ", Number(amount), sender, Number(nonce));
+  console.log(
+    "received from sepolia attesting at mumbai",
+    sender,
+    "amount:",
+    amount,
+    "nonce :",
+    Number(nonce)
+  );
   console.log("##############################################");
   const tx = await mumbaiContract.attestTransaction(
     Number(nonce),
@@ -40,7 +53,13 @@ sepoliaContract.on("ethReceived", async (amount, sender, nonce) => {
 
 mumbaiContract.on("nftBurned", async (sender, uri, nonce) => {
   console.log("##############################################");
-  console.log("attesting ", sender, uri, Number(nonce));
+  console.log(
+    "received from mumbai attesting at sepolia",
+    sender,
+    uri,
+    "nonce :",
+    Number(nonce)
+  );
   console.log("##############################################");
   const tx = await sepoliaContract.attestTransaction(
     Number(nonce),
@@ -53,13 +72,19 @@ mumbaiContract.on("nftBurned", async (sender, uri, nonce) => {
 
 mumbaiContract.on("ethReceived", async (amount, sender, nonce) => {
   console.log("##############################################");
-  console.log("attesting ", Number(amount), sender, Number(nonce));
+  console.log(
+    "received from mumbai attesting at sepolia",
+    sender,
+    amount,
+    "nonce :",
+    Number(nonce)
+  );
   console.log("##############################################");
   const tx = await sepoliaContract.attestTransaction(
     Number(nonce),
     "",
     sender,
-    Number(amount) + 1
+    Number(amount)
   );
   console.log(await tx.wait());
 });
