@@ -2,7 +2,6 @@ import { ethers } from "ethers";
 import abi from "./abi.js";
 import { getSignedContract } from "./helper.js";
 import dotenv from "dotenv";
-import { setTimeout } from "timers/promises";
 
 dotenv.config();
 
